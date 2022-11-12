@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Tipos_persona extends Model
 {
     use HasFactory;
+
+    public function productos()
+    {
+        return $this->hasMany(Producto::class);
+    }
 }
