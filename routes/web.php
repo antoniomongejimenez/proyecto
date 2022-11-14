@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProductoController;
+use App\Models\Producto;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,5 +22,8 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/productos', [ProductoController::class, 'index'])
+->name('productos');
 
 require __DIR__.'/auth.php';
