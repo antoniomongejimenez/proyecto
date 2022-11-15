@@ -15,7 +15,11 @@ class TipoController extends Controller
      */
     public function index()
     {
-        //
+        $tipos = Tipo::all();
+
+        return view('tipos.index', [
+            'tipos' => $tipos,
+        ]);
     }
 
     /**
@@ -47,7 +51,9 @@ class TipoController extends Controller
      */
     public function show(Tipo $tipo)
     {
-        //
+        return view('tipos.show', [
+            'tipo' => $tipo,
+        ]);
     }
 
     /**
