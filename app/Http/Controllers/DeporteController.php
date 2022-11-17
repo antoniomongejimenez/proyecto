@@ -71,7 +71,9 @@ class DeporteController extends Controller
      */
     public function edit(Deporte $deporte)
     {
-        //
+        return view('deportes.edit', [
+            'deporte' => $deporte,
+        ]);
     }
 
     /**
@@ -83,7 +85,10 @@ class DeporteController extends Controller
      */
     public function update(UpdateDeporteRequest $request, Deporte $deporte)
     {
-        //
+        $deporte->fill($request->validated());
+        $deporte->save();
+
+        return redirect()->route('deportes.index')->with('success', "Deporte editado correctamente");
     }
 
     /**
