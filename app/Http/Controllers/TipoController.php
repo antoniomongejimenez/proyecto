@@ -99,6 +99,8 @@ class TipoController extends Controller
      */
     public function destroy(Tipo $tipo)
     {
-        //
+        $tipo->delete();
+
+        return redirect()->route('tipos.index')->with('success', "Tipo borrado correctamente");
     }
 }
