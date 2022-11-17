@@ -15,7 +15,11 @@ class DeporteController extends Controller
      */
     public function index()
     {
-        //
+        $deportes = Deporte::all();
+
+        return view('deportes.index', [
+            'deportes' => $deportes,
+        ]);
     }
 
     /**
@@ -25,7 +29,11 @@ class DeporteController extends Controller
      */
     public function create()
     {
-        //
+        $deporte = new Deporte();
+
+        return view('deportes.create', [
+            'deporte' => $deporte,
+        ]);
     }
 
     /**
@@ -36,7 +44,10 @@ class DeporteController extends Controller
      */
     public function store(StoreDeporteRequest $request)
     {
-        //
+        $validados = $request->validated();
+        $deporte = new Deporte($validados);
+        $deporte->save();
+        return redirect()->route('deportes.index')->with('success', "Deporte creado correctamente");
     }
 
     /**
@@ -47,7 +58,9 @@ class DeporteController extends Controller
      */
     public function show(Deporte $deporte)
     {
-        //
+        return view('deportes.show', [
+            'deporte' => $deporte,
+        ]);
     }
 
     /**
