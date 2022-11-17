@@ -99,6 +99,8 @@ class DeporteController extends Controller
      */
     public function destroy(Deporte $deporte)
     {
-        //
+        $deporte->delete();
+
+        return redirect()->route('deportes.index')->with('success', "Deporte borrado correctamente");
     }
 }
