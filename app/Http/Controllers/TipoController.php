@@ -29,7 +29,11 @@ class TipoController extends Controller
      */
     public function create()
     {
-        //
+        $tipo = new Tipo();
+
+        return view('tipos.create', [
+            'tipo' => $tipo,
+        ]);
     }
 
     /**
@@ -40,7 +44,10 @@ class TipoController extends Controller
      */
     public function store(StoreTipoRequest $request)
     {
-        //
+        $validados = $request->validated();
+        $tipo = new Tipo($validados);
+        $tipo->save();
+        return redirect()->route('tipos.index')->with('success', "Tipo creado correctamente");;
     }
 
     /**
