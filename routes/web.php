@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DeporteController;
 use App\Http\Controllers\TipoController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,5 +24,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::resource('tipos', TipoController::class);
+
+Route::resource('deportes', DeporteController::class);
 
 require __DIR__.'/auth.php';

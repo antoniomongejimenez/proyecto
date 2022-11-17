@@ -47,7 +47,7 @@ class TipoController extends Controller
         $validados = $request->validated();
         $tipo = new Tipo($validados);
         $tipo->save();
-        return redirect()->route('tipos.index')->with('success', "Tipo creado correctamente");;
+        return redirect()->route('tipos.index')->with('success', "Tipo creado correctamente");
     }
 
     /**
