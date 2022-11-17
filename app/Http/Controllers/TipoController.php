@@ -71,7 +71,9 @@ class TipoController extends Controller
      */
     public function edit(Tipo $tipo)
     {
-        //
+        return view('tipos.edit', [
+            'tipo' => $tipo,
+        ]);
     }
 
     /**
@@ -83,7 +85,10 @@ class TipoController extends Controller
      */
     public function update(UpdateTipoRequest $request, Tipo $tipo)
     {
-        //
+        $tipo->fill($request->validated());
+        $tipo->save();
+
+        return redirect()->route('tipos.index')->with('success', "Tipo editado correctamente");
     }
 
     /**
