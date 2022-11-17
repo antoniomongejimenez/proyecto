@@ -48,7 +48,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <a href="/tipos/create" class="mt-4 text-blue-900 hover:underline">Insertar un nuevo cliente</a>
+                        <a href="/tipos/create" class="mt-4 text-blue-900 hover:underline">Insertar un nuevo tipo</a>
                     </x-plantilla>
                 </div>
             </div>
