@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreMe_gustaRequest;
-use App\Http\Requests\UpdateMe_gustaRequest;
-use App\Models\Me_gusta;
+use App\Http\Requests\StoreMeGustaRequest;
+use App\Http\Requests\UpdateMeGustaRequest;
+use App\Models\MeGusta;
 
 class MeGustaController extends Controller
 {
@@ -31,10 +31,10 @@ class MeGustaController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreMe_gustaRequest  $request
+     * @param  \App\Http\Requests\StoreMeGustaRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMe_gustaRequest $request)
+    public function store(StoreMeGustaRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class MeGustaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Me_gusta  $me_gusta
+     * @param  \App\Models\MeGusta  $meGusta
      * @return \Illuminate\Http\Response
      */
-    public function show(Me_gusta $me_gusta)
+    public function show(MeGusta $meGusta)
     {
         //
     }
@@ -53,10 +53,10 @@ class MeGustaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Me_gusta  $me_gusta
+     * @param  \App\Models\MeGusta  $meGusta
      * @return \Illuminate\Http\Response
      */
-    public function edit(Me_gusta $me_gusta)
+    public function edit(MeGusta $meGusta)
     {
         //
     }
@@ -64,11 +64,11 @@ class MeGustaController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateMe_gustaRequest  $request
-     * @param  \App\Models\Me_gusta  $me_gusta
+     * @param  \App\Http\Requests\UpdateMeGustaRequest  $request
+     * @param  \App\Models\MeGusta  $meGusta
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateMe_gustaRequest $request, Me_gusta $me_gusta)
+    public function update(UpdateMeGustaRequest $request, MeGusta $meGusta)
     {
         //
     }
@@ -76,10 +76,10 @@ class MeGustaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Me_gusta  $me_gusta
+     * @param  \App\Models\MeGusta  $meGusta
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Me_gusta $me_gusta)
+    public function destroy(MeGusta $meGusta)
     {
         //
     }

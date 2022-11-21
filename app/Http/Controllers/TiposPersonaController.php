@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreTipos_personaRequest;
-use App\Http\Requests\UpdateTipos_personaRequest;
-use App\Models\Tipos_persona;
+use App\Http\Requests\StoreTiposPersonaRequest;
+use App\Http\Requests\UpdateTiposPersonaRequest;
+use App\Models\TiposPersona;
 
 class TiposPersonaController extends Controller
 {
@@ -15,7 +15,11 @@ class TiposPersonaController extends Controller
      */
     public function index()
     {
-        //
+        $tipospersonas = TiposPersona::all();
+
+        return view('tipospersonas.index', [
+            'tipospersonas' => $tipospersonas,
+        ]);
     }
 
     /**
@@ -25,38 +29,48 @@ class TiposPersonaController extends Controller
      */
     public function create()
     {
-        //
+        $tipoPersona = new TiposPersona();
+
+        return view('tipospersonas.create', [
+            'tipoPersona' => $tipoPersona,
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreTipos_personaRequest  $request
+     * @param  \App\Http\Requests\StoreTiposPersonaRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreTipos_personaRequest $request)
+    public function store(StoreTiposPersonaRequest $request)
     {
-        //
+        $validados = $request->validated();
+        $tipoPersona = new TiposPersona($validados);
+        $tipoPersona->save();
+        return redirect()->route('tipospersonas.index')->with('success', "Tipo de persona creado correctamente");
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Tipos_persona  $tipos_persona
+     * @param  \App\Models\TiposPersona  $tiposPersona
      * @return \Illuminate\Http\Response
      */
-    public function show(Tipos_persona $tipos_persona)
+    public function show(TiposPersona $tipospersona)
     {
-        //
+
+        return view('tipospersonas.show', [
+            'tipospersona' => $tipospersona,
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Tipos_persona  $tipos_persona
+     * @param  \App\Models\TiposPersona  $tiposPersona
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tipos_persona $tipos_persona)
+    public function edit(TiposPersona $tiposPersona)
     {
         //
     }
@@ -64,11 +78,11 @@ class TiposPersonaController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateTipos_personaRequest  $request
-     * @param  \App\Models\Tipos_persona  $tipos_persona
+     * @param  \App\Http\Requests\UpdateTiposPersonaRequest  $request
+     * @param  \App\Models\TiposPersona  $tiposPersona
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateTipos_personaRequest $request, Tipos_persona $tipos_persona)
+    public function update(UpdateTiposPersonaRequest $request, TiposPersona $tiposPersona)
     {
         //
     }
@@ -76,10 +90,10 @@ class TiposPersonaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Tipos_persona  $tipos_persona
+     * @param  \App\Models\TiposPersona  $tiposPersona
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tipos_persona $tipos_persona)
+    public function destroy(TiposPersona $tiposPersona)
     {
         //
     }

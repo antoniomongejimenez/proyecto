@@ -19,9 +19,9 @@ class Producto extends Model
         return $this->belongsTo(Tipo::class);
     }
 
-    public function tipos_persona()
+    public function tiposPersona()
     {
-        return $this->belongsTo(Tipos_persona::class);
+        return $this->belongsTo(TiposPersona::class);
     }
 
     public function marca()
@@ -31,12 +31,22 @@ class Producto extends Model
 
     public function lineas()
     {
-        return $this->hasMany(Linea_carrito::class);
+        return $this->hasMany(LineaCarrito::class);
     }
 
     public function megustas()
     {
-        return $this->hasMany(Me_gusta::class);
+        return $this->hasMany(MeGusta::class);
+    }
+
+    public function comentarios()
+    {
+        return $this->hasMany(Comentario::class);
+    }
+
+    public function valoraciones()
+    {
+        return $this->hasMany(Valoracion::class);
     }
 
     public function tallas()

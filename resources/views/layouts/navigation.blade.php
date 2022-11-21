@@ -21,6 +21,9 @@
                     <x-nav-link :href="route('deportes.index')" :active="request()->routeIs('deportes.index')">
                         {{ __('Deportes') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('tipospersonas.index')" :active="request()->routeIs('tipospersonas.index')">
+                        {{ __('Tipos de persona') }}
+                    </x-nav-link>
                 </div>
             </div>
 

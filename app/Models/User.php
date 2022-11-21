@@ -44,11 +44,21 @@ class User extends Authenticatable
 
     public function lineas()
     {
-        return $this->hasMany(Linea_carrito::class);
+        return $this->hasMany(LineaCarrito::class);
     }
 
     public function megustas()
     {
-        return $this->hasMany(Me_gusta::class);
+        return $this->hasMany(MeGusta::class);
+    }
+
+    public function comentarios()
+    {
+        return $this->hasMany(Comentario::class);
+    }
+
+    public function valoraciones()
+    {
+        return $this->hasMany(Valoracion::class);
     }
 }

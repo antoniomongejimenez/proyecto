@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\Linea_carrito;
+use App\Models\LineaCarrito;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class LineaCarritoPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Linea_carrito  $lineaCarrito
+     * @param  \App\Models\LineaCarrito  $lineaCarrito
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Linea_carrito $lineaCarrito)
+    public function view(User $user, LineaCarrito $lineaCarrito)
     {
         //
     }
@@ -48,10 +48,10 @@ class LineaCarritoPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Linea_carrito  $lineaCarrito
+     * @param  \App\Models\LineaCarrito  $lineaCarrito
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Linea_carrito $lineaCarrito)
+    public function update(User $user, LineaCarrito $lineaCarrito)
     {
         //
     }
@@ -60,10 +60,10 @@ class LineaCarritoPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Linea_carrito  $lineaCarrito
+     * @param  \App\Models\LineaCarrito  $lineaCarrito
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Linea_carrito $lineaCarrito)
+    public function delete(User $user, LineaCarrito $lineaCarrito)
     {
         //
     }
@@ -72,10 +72,10 @@ class LineaCarritoPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Linea_carrito  $lineaCarrito
+     * @param  \App\Models\LineaCarrito  $lineaCarrito
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Linea_carrito $lineaCarrito)
+    public function restore(User $user, LineaCarrito $lineaCarrito)
     {
         //
     }
@@ -84,10 +84,10 @@ class LineaCarritoPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Linea_carrito  $lineaCarrito
+     * @param  \App\Models\LineaCarrito  $lineaCarrito
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Linea_carrito $lineaCarrito)
+    public function forceDelete(User $user, LineaCarrito $lineaCarrito)
     {
         //
     }
