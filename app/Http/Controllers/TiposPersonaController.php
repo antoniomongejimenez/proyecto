@@ -70,9 +70,11 @@ class TiposPersonaController extends Controller
      * @param  \App\Models\TiposPersona  $tiposPersona
      * @return \Illuminate\Http\Response
      */
-    public function edit(TiposPersona $tiposPersona)
+    public function edit(TiposPersona $tipospersona)
     {
-        //
+        return view('tipospersonas.edit', [
+            'tipospersona' => $tipospersona,
+        ]);
     }
 
     /**
@@ -82,9 +84,12 @@ class TiposPersonaController extends Controller
      * @param  \App\Models\TiposPersona  $tiposPersona
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateTiposPersonaRequest $request, TiposPersona $tiposPersona)
+    public function update(UpdateTiposPersonaRequest $request, TiposPersona $tipospersona)
     {
-        //
+        $tipospersona->fill($request->validated());
+        $tipospersona->save();
+
+        return redirect()->route('tipospersonas.index')->with('success', "Tipo de persona editado correctamente");
     }
 
     /**
