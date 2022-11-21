@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreLinea_carritoRequest;
-use App\Http\Requests\UpdateLinea_carritoRequest;
-use App\Models\Linea_carrito;
+use App\Http\Requests\StoreLineaCarritoRequest;
+use App\Http\Requests\UpdateLineaCarritoRequest;
+use App\Models\LineaCarrito;
 
 class LineaCarritoController extends Controller
 {
@@ -31,10 +31,10 @@ class LineaCarritoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreLinea_carritoRequest  $request
+     * @param  \App\Http\Requests\StoreLineaCarritoRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreLinea_carritoRequest $request)
+    public function store(StoreLineaCarritoRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class LineaCarritoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Linea_carrito  $linea_carrito
+     * @param  \App\Models\LineaCarrito  $lineaCarrito
      * @return \Illuminate\Http\Response
      */
-    public function show(Linea_carrito $linea_carrito)
+    public function show(LineaCarrito $lineaCarrito)
     {
         //
     }
@@ -53,10 +53,10 @@ class LineaCarritoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Linea_carrito  $linea_carrito
+     * @param  \App\Models\LineaCarrito  $lineaCarrito
      * @return \Illuminate\Http\Response
      */
-    public function edit(Linea_carrito $linea_carrito)
+    public function edit(LineaCarrito $lineaCarrito)
     {
         //
     }
@@ -64,11 +64,11 @@ class LineaCarritoController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateLinea_carritoRequest  $request
-     * @param  \App\Models\Linea_carrito  $linea_carrito
+     * @param  \App\Http\Requests\UpdateLineaCarritoRequest  $request
+     * @param  \App\Models\LineaCarrito  $lineaCarrito
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateLinea_carritoRequest $request, Linea_carrito $linea_carrito)
+    public function update(UpdateLineaCarritoRequest $request, LineaCarrito $lineaCarrito)
     {
         //
     }
@@ -76,10 +76,10 @@ class LineaCarritoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Linea_carrito  $linea_carrito
+     * @param  \App\Models\LineaCarrito  $lineaCarrito
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Linea_carrito $linea_carrito)
+    public function destroy(LineaCarrito $lineaCarrito)
     {
         //
     }

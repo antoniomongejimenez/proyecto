@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\Me_gusta;
+use App\Models\MeGusta;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class MeGustaPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Me_gusta  $meGusta
+     * @param  \App\Models\MeGusta  $meGusta
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Me_gusta $meGusta)
+    public function view(User $user, MeGusta $meGusta)
     {
         //
     }
@@ -48,10 +48,10 @@ class MeGustaPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Me_gusta  $meGusta
+     * @param  \App\Models\MeGusta  $meGusta
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Me_gusta $meGusta)
+    public function update(User $user, MeGusta $meGusta)
     {
         //
     }
@@ -60,10 +60,10 @@ class MeGustaPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Me_gusta  $meGusta
+     * @param  \App\Models\MeGusta  $meGusta
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Me_gusta $meGusta)
+    public function delete(User $user, MeGusta $meGusta)
     {
         //
     }
@@ -72,10 +72,10 @@ class MeGustaPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Me_gusta  $meGusta
+     * @param  \App\Models\MeGusta  $meGusta
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Me_gusta $meGusta)
+    public function restore(User $user, MeGusta $meGusta)
     {
         //
     }
@@ -84,10 +84,10 @@ class MeGustaPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Me_gusta  $meGusta
+     * @param  \App\Models\MeGusta  $meGusta
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Me_gusta $meGusta)
+    public function forceDelete(User $user, MeGusta $meGusta)
     {
         //
     }
