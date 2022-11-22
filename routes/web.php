@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DeporteController;
+use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\TipoController;
 use App\Http\Controllers\TiposPersonaController;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,8 @@ Route::resource('tipos', TipoController::class);
 Route::resource('deportes', DeporteController::class);
 
 Route::resource('tipospersonas', TiposPersonaController::class);
+
+Route::resource('marcas', MarcaController::class);
 
 
 require __DIR__.'/auth.php';
