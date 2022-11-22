@@ -47,7 +47,7 @@ class MarcaController extends Controller
         $validados = $request->validated();
         $marca = new Marca($validados);
         $marca->save();
-        return redirect()->route('marcas.index')->with('success', "Marca creado correctamente");
+        return redirect()->route('marcas.index')->with('success', "Marca creada correctamente");
     }
 
     /**
@@ -71,7 +71,9 @@ class MarcaController extends Controller
      */
     public function edit(Marca $marca)
     {
-        //
+        return view('marcas.edit', [
+            'marca' => $marca,
+        ]);
     }
 
     /**
@@ -83,7 +85,10 @@ class MarcaController extends Controller
      */
     public function update(UpdateMarcaRequest $request, Marca $marca)
     {
-        //
+        $marca->fill($request->validated());
+        $marca->save();
+
+        return redirect()->route('marcas.index')->with('success', "Marca editada correctamente");
     }
 
     /**
