@@ -15,7 +15,11 @@ class MarcaController extends Controller
      */
     public function index()
     {
-        //
+        $marcas = Marca::all();
+
+        return view('marcas.index', [
+            'marcas' => $marcas,
+        ]);
     }
 
     /**
@@ -25,7 +29,11 @@ class MarcaController extends Controller
      */
     public function create()
     {
-        //
+        $marca = new Marca();
+
+        return view('marcas.create', [
+            'marca' => $marca,
+        ]);
     }
 
     /**
@@ -36,7 +44,10 @@ class MarcaController extends Controller
      */
     public function store(StoreMarcaRequest $request)
     {
-        //
+        $validados = $request->validated();
+        $marca = new Marca($validados);
+        $marca->save();
+        return redirect()->route('marcas.index')->with('success', "Marca creado correctamente");
     }
 
     /**
@@ -47,7 +58,9 @@ class MarcaController extends Controller
      */
     public function show(Marca $marca)
     {
-        //
+        return view('marcas.show', [
+            'marca' => $marca,
+        ]);
     }
 
     /**
