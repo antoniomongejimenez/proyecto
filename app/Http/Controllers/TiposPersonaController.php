@@ -98,8 +98,10 @@ class TiposPersonaController extends Controller
      * @param  \App\Models\TiposPersona  $tiposPersona
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TiposPersona $tiposPersona)
+    public function destroy(TiposPersona $tipospersona)
     {
-        //
+        $tipospersona->delete();
+
+        return redirect()->route('tipospersonas.index')->with('success', "Tipo de persona borrado correctamente");
     }
 }
