@@ -9,6 +9,17 @@ class Producto extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'codigo',
+        'denominación',
+        'descripción',
+        'precio',
+        'deporte_id',
+        'tipo_id',
+        'marca_id',
+        'tipos_persona_id'
+    ];
+
     public function deporte()
     {
         return $this->belongsTo(Deporte::class);

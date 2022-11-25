@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProductoRequest;
 use App\Http\Requests\UpdateProductoRequest;
+use App\Models\Deporte;
+use App\Models\Marca;
 use App\Models\Producto;
+use App\Models\Tipo;
+use App\Models\TiposPersona;
 
 class ProductoController extends Controller
 {
@@ -15,7 +19,11 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        //
+        $productos = Producto::all();
+
+        return view('productos.index', [
+            'productos' => $productos,
+        ]);
     }
 
     /**
@@ -25,7 +33,20 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        //
+        $producto = new Producto();
+
+        $deportes = Deporte::all();
+        $tipos = Tipo::all();
+        $marcas = Marca::all();
+        $tiposPersonas = TiposPersona::all();
+
+        return view('productos.create', [
+            'tiposPersonas' => $tiposPersonas,
+            'marcas' => $marcas,
+            'tipos' => $tipos,
+            'deportes' => $deportes,
+            'producto' => $producto,
+        ]);
     }
 
     /**
@@ -36,7 +57,10 @@ class ProductoController extends Controller
      */
     public function store(StoreProductoRequest $request)
     {
-        //
+        $validados = $request->validated();
+        $producto = new Producto($validados);
+        $producto->save();
+        return redirect()->route('productos.index')->with('success', "Producto creado correctamente");
     }
 
     /**
@@ -47,7 +71,9 @@ class ProductoController extends Controller
      */
     public function show(Producto $producto)
     {
-        //
+        return view('productos.show', [
+            'producto' => $producto,
+        ]);
     }
 
     /**
