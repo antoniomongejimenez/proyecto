@@ -13,7 +13,7 @@ class UpdateProductoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,14 @@ class UpdateProductoRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'codigo' => 'required|numeric|min:1|digits:10',
+            'denominación' => 'required|string|max:255',
+            'descripción' => 'required|string|max:255',
+            'precio' => 'required|numeric',
+            'deporte_id' => 'required',
+            'tipo_id' => 'required',
+            'marca_id' => 'required',
+            'tipos_persona_id' => 'required',
         ];
     }
 }
