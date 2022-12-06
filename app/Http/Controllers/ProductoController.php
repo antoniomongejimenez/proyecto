@@ -84,7 +84,18 @@ class ProductoController extends Controller
      */
     public function edit(Producto $producto)
     {
-        //
+        $deportes = Deporte::all();
+        $tipos = Tipo::all();
+        $marcas = Marca::all();
+        $tiposPersonas = TiposPersona::all();
+
+        return view('productos.edit', [
+            'tiposPersonas' => $tiposPersonas,
+            'marcas' => $marcas,
+            'tipos' => $tipos,
+            'deportes' => $deportes,
+            'producto' => $producto,
+        ]);
     }
 
     /**
@@ -96,7 +107,10 @@ class ProductoController extends Controller
      */
     public function update(UpdateProductoRequest $request, Producto $producto)
     {
-        //
+        $producto->fill($request->validated());
+        $producto->save();
+
+        return redirect()->route('productos.index')->with('success', "Producto editado correctamente");
     }
 
     /**
