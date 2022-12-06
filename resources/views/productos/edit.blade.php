@@ -90,7 +90,7 @@
                     class="text-sm font-medium text-gray-900 block mb-2 @error('codigo') text-red-500 @enderror">
                     Código (10 dígitos)
                 </label>
-                <input type="number" min="1" name="codigo" id="codigo"
+                <input type="number" min="1111111111" name="codigo" id="codigo"
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 p-2.5 @error('codigo') border-red-500 @enderror"
                     value="{{ old('codigo', $producto->codigo) }}">
                 @error('codigo')
