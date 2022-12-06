@@ -19,7 +19,7 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        $productos = Producto::all();
+        $productos = Producto::all()->sortBy('id');
 
         return view('productos.index', [
             'productos' => $productos,
@@ -121,6 +121,8 @@ class ProductoController extends Controller
      */
     public function destroy(Producto $producto)
     {
-        //
+        $producto->delete();
+
+        return redirect()->route('productos.index')->with('success', "Producto borrado correctamente");
     }
 }
