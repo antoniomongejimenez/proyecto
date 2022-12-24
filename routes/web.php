@@ -34,6 +34,9 @@ Route::resource('tipospersonas', TiposPersonaController::class);
 
 Route::resource('marcas', MarcaController::class);
 
+Route::get('/productos/comprador', [ProductoController::class, 'indexcomprador'])
+->name('productos.comprador');
+
 Route::resource('productos', ProductoController::class);
 
 
