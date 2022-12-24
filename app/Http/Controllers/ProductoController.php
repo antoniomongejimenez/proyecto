@@ -26,6 +26,15 @@ class ProductoController extends Controller
         ]);
     }
 
+    public function indexcomprador()
+    {
+        $productos = Producto::all()->sortBy('id');
+
+        return view('productos.indexcomprador', [
+            'productos' => $productos,
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
