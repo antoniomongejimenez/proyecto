@@ -37,6 +37,9 @@ Route::resource('marcas', MarcaController::class);
 Route::get('/productos/comprador', [ProductoController::class, 'indexcomprador'])
 ->name('productos.comprador');
 
+Route::get('/productos/comprador/{producto}', [ProductoController::class, 'showcomprador'])
+->name('productos.showcomprador');
+
 Route::resource('productos', ProductoController::class);
 
 
