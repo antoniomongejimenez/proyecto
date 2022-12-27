@@ -9,4 +9,9 @@ class LineaCarrito extends Model
 {
     use HasFactory;
 
+    public function producto()
+    {
+        return $this->belongsTo(Producto::class);
+    }
+
 }
