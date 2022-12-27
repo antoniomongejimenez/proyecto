@@ -99,7 +99,7 @@ class LineaCarritoController extends Controller
     public function meter( Producto $producto)
     {
 
-        $carrito = $carrito = LineaCarrito::where('producto_id', $producto->id)->where('user_id', auth()->user()->id)->get();
+        $carrito = LineaCarrito::where('producto_id', $producto->id)->where('user_id', auth()->user()->id)->get();
 
         if ($carrito->isEmpty()) {
             $carrito = new LineaCarrito();
@@ -108,19 +108,19 @@ class LineaCarritoController extends Controller
             $carrito->cantidad = 1;
             $carrito->save();
 
-            return redirect()->route('lineaCarritos.index')->with('success', 'Producto añadido al carrito.');
+            return redirect()->back()->with('success', 'Producto añadido al carrito.');
 
         }
 
         $carrito[0]->cantidad +=1;
         $carrito[0]->save();
 
-        return redirect()->route('lineaCarritos.index')->with('success', 'Producto añadido al carrito.');
+        return redirect()->back()->with('success', 'Producto añadido al carrito.');
     }
 
     public function sumar(Producto $producto)
     {
-        $carrito = $carrito = LineaCarrito::where('producto_id', $producto->id)->where('user_id', auth()->user()->id)->get();
+        $carrito = LineaCarrito::where('producto_id', $producto->id)->where('user_id', auth()->user()->id)->get();
 
         $carrito[0]->cantidad +=1;
         $carrito[0]->save();
@@ -130,7 +130,7 @@ class LineaCarritoController extends Controller
 
     public function restar(Producto $producto)
     {
-        $carrito = $carrito = LineaCarrito::where('producto_id', $producto->id)->where('user_id', auth()->user()->id)->get();
+        $carrito = LineaCarrito::where('producto_id', $producto->id)->where('user_id', auth()->user()->id)->get();
 
         if ($carrito[0]->cantidad === 1) {
             $carrito[0]->delete();
@@ -156,5 +156,14 @@ class LineaCarritoController extends Controller
 
         return redirect()->route('lineaCarritos.index')->with('success', 'Carrito vaciado.');
 
+    }
+
+    public function eliminar(Producto $producto)
+    {
+        $carrito = LineaCarrito::where('producto_id', $producto->id)->where('user_id', auth()->user()->id)->get();
+
+        $carrito[0]->delete();
+
+        return redirect()->route('lineaCarritos.index')->with('success', 'Producto eliminado del carrito.');
     }
 }

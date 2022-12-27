@@ -35,6 +35,13 @@
                                     <div class="pr-8 ">
                                         <span class="text-xs font-medium">{{$carrito->producto->precio * $carrito->cantidad}}€</span>
                                     </div>
+                                    <div class="pr-8 ">
+                                        <form action="{{route('lineaCarrito.eliminar', $carrito->producto_id)}}" method="post">
+                                            @csrf
+                                            @method('POST')
+                                            <button class="inline-flex text-black h-6 px-3 justify-center items-center" type="submit">Quitar</button>
+                                        </form>
+                                    </div>
                                     <div>
                                         <i class="fa fa-close text-xs font-medium"></i>
                                     </div>
