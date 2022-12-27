@@ -46,6 +46,11 @@
                                     <i class="fa fa-arrow-left pr-2"></i>
                                     <a class="text-md  font-medium text-gray-500" href="/productos/comprador">Continuar comprando</a>
                                 </div>
+                                <form action="{{route('lineaCarrito.vaciar')}}" method="post">
+                                    @csrf
+                                    @method('POST')
+                                    <button class="rounded-lg bg-red-400 text-black px-7 py-2" type="submit"> Vaciar carrito</button>
+                                </form>
                                 <div class="flex justify-center items-end">
                                     <span class="text-sm font-medium text-gray-400 mr-1">Precio total:</span>
                                     <span class="text-lg font-bold text-gray-800 "> {{$preciototal}}€</span>

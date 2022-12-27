@@ -54,6 +54,9 @@ Route::post('/lineaCarritos/sumar/{producto}', [LineaCarritoController::class, '
 Route::post('/lineaCarritos/restar/{producto}', [LineaCarritoController::class, 'restar'])
 ->name('lineaCarrito.restar');
 
+Route::post('/lineaCarritos/vaciar', [LineaCarritoController::class, 'vaciar'])
+->name('lineaCarrito.vaciar');
+
 
 Route::resource('productos', ProductoController::class);
 

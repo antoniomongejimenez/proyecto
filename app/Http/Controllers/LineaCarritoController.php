@@ -143,4 +143,18 @@ class LineaCarritoController extends Controller
 
         return redirect()->route('lineaCarritos.index')->with('success', 'Producto restado del carrito.');
     }
+
+    public function vaciar()
+    {
+        $carrito = LineaCarrito::where('user_id', auth()->user()->id)->get();
+
+        if ($carrito->isEmpty()) {
+            return redirect()->route('lineaCarritos.index')->with('error', 'El carrito esta vacio.');
+        }
+
+        $carrito->each->delete();
+
+        return redirect()->route('lineaCarritos.index')->with('success', 'Carrito vaciado.');
+
+    }
 }
