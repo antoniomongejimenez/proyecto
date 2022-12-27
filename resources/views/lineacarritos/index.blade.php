@@ -20,7 +20,11 @@
                                     <div class="pr-8 flex ">
                                         <span class="font-semibold">-</span>
                                         <input type="text" class="focus:outline-none bg-gray-100 border h-6 w-8 rounded text-sm px-2 mx-2" value="{{$carrito->cantidad}}">
-                                        <span class="font-semibold">+</span>
+                                        <form action="{{route('lineaCarrito.sumar', $carrito->producto_id)}}" method="post">
+                                            @csrf
+                                            @method('POST')
+                                            <button class="inline-flex text-black h-6 px-3 justify-center items-center" type="submit">+</button>
+                                        </form>
                                     </div>
                                     <div class="pr-8 ">
                                         <span class="text-xs font-medium">{{$carrito->producto->precio * $carrito->cantidad}}€</span>

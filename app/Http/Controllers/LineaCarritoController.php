@@ -117,4 +117,14 @@ class LineaCarritoController extends Controller
 
         return redirect()->route('lineaCarritos.index')->with('success', 'Producto añadido al carrito.');
     }
+
+    public function sumar(Producto $producto)
+    {
+        $carrito = $carrito = LineaCarrito::where('producto_id', $producto->id)->where('user_id', auth()->user()->id)->get();
+
+        $carrito[0]->cantidad +=1;
+        $carrito[0]->save();
+
+        return redirect()->route('lineaCarritos.index')->with('success', 'Producto sumado al carrito.');
+    }
 }
