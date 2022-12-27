@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\DeporteController;
+use App\Http\Controllers\LineaCarritoController;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\TipoController;
 use App\Http\Controllers\TiposPersonaController;
+use App\Models\LineaCarrito;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +24,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -36,6 +39,15 @@ Route::resource('marcas', MarcaController::class);
 
 Route::get('/productos/comprador', [ProductoController::class, 'indexcomprador'])
 ->name('productos.comprador');
+
+Route::get('/productos/comprador/{producto}', [ProductoController::class, 'showcomprador'])
+->name('productos.showcomprador');
+
+Route::resource('lineaCarritos', LineaCarritoController::class);
+
+Route::post('/lineaCarritos/meter/{producto}', [LineaCarritoController::class, 'meter'])
+->name('lineaCarrito.meter');
+
 
 Route::resource('productos', ProductoController::class);
 

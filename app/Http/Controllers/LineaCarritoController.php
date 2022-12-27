@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreLineaCarritoRequest;
 use App\Http\Requests\UpdateLineaCarritoRequest;
 use App\Models\LineaCarrito;
+use App\Models\Producto;
+use Illuminate\Support\Facades\Auth;
 
 class LineaCarritoController extends Controller
 {
@@ -15,7 +17,17 @@ class LineaCarritoController extends Controller
      */
     public function index()
     {
-        //
+        $carritos = LineaCarrito::all()->where('user_id', auth()->user()->id);
+
+        $total = 0;
+        foreach ($carritos as $carrito){
+            $total = $total + $carrito->producto->precio * $carrito->cantidad;
+        }
+
+        return view('lineacarritos.index', [
+            'carritos' => $carritos,
+            'total' => $total,
+        ]);
     }
 
     /**
@@ -25,7 +37,7 @@ class LineaCarritoController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -82,5 +94,27 @@ class LineaCarritoController extends Controller
     public function destroy(LineaCarrito $lineaCarrito)
     {
         //
+    }
+
+    public function meter( Producto $producto)
+    {
+
+        $carrito = $carrito = LineaCarrito::where('producto_id', $producto->id)->where('user_id', auth()->user()->id)->get();
+
+        if ($carrito->isEmpty()) {
+            $carrito = new LineaCarrito();
+            $carrito->user_id = Auth::user()->id;
+            $carrito->producto_id = $producto->id;
+            $carrito->cantidad = 1;
+            $carrito->save();
+
+            return redirect()->route('lineaCarritos.index')->with('success', 'Producto añadido al carrito.');
+
+        }
+
+        $carrito[0]->cantidad +=1;
+        $carrito[0]->save();
+
+        return redirect()->route('lineaCarritos.index')->with('success', 'Producto añadido al carrito.');
     }
 }

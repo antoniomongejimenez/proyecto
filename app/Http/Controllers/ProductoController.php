@@ -35,6 +35,13 @@ class ProductoController extends Controller
         ]);
     }
 
+    public function showcomprador(Producto $producto)
+    {
+        return view('productos.showcomprador', [
+            'producto' => $producto,
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
