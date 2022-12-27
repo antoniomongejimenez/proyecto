@@ -17,16 +17,16 @@ class LineaCarritoController extends Controller
      */
     public function index()
     {
-        $carritos = LineaCarrito::all()->where('user_id', auth()->user()->id);
+        $carritos = LineaCarrito::all()->where('user_id', auth()->user()->id)->sortBy('created_at');
 
-        $total = 0;
+        $preciototal = 0;
         foreach ($carritos as $carrito){
-            $total = $total + $carrito->producto->precio * $carrito->cantidad;
+            $preciototal = $preciototal + $carrito->producto->precio * $carrito->cantidad;
         }
 
         return view('lineacarritos.index', [
             'carritos' => $carritos,
-            'total' => $total,
+            'preciototal' => $preciototal,
         ]);
     }
 
@@ -126,5 +126,21 @@ class LineaCarritoController extends Controller
         $carrito[0]->save();
 
         return redirect()->route('lineaCarritos.index')->with('success', 'Producto sumado al carrito.');
+    }
+
+    public function restar(Producto $producto)
+    {
+        $carrito = $carrito = LineaCarrito::where('producto_id', $producto->id)->where('user_id', auth()->user()->id)->get();
+
+        if ($carrito[0]->cantidad === 1) {
+            $carrito[0]->delete();
+
+            return redirect()->route('lineaCarritos.index')->with('success', 'Producto eliminado del carrito.');
+        }
+
+        $carrito[0]->cantidad -=1;
+        $carrito[0]->save();
+
+        return redirect()->route('lineaCarritos.index')->with('success', 'Producto restado del carrito.');
     }
 }

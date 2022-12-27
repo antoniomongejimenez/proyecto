@@ -51,6 +51,9 @@ Route::post('/lineaCarritos/meter/{producto}', [LineaCarritoController::class, '
 Route::post('/lineaCarritos/sumar/{producto}', [LineaCarritoController::class, 'sumar'])
 ->name('lineaCarrito.sumar');
 
+Route::post('/lineaCarritos/restar/{producto}', [LineaCarritoController::class, 'restar'])
+->name('lineaCarrito.restar');
+
 
 Route::resource('productos', ProductoController::class);
 
